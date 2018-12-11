@@ -1,9 +1,25 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+//apply plugin: 'com.android.application'
+apply plugin: 'com.novoda.bintray-release' //添加
+
+publish{
+    repoName = 'base_remote_maven'    //远程仓库名字  改为自己的 必须和Jcenter 相对应
+    userOrg = 'lixiao'   //bintray.com的用户名  改为自己的  必须和Jcenter 相对应
+    groupId = 'com.lx.baselibrary'    //依赖的时候的包名   自己设定
+    artifactId = 'LxBaseLibrary'         //项目名称   改为自己的   必须和Jcenter 相对应
+    publishVersion = '1.0.0'    //版本号
+    website = 'https://bintray.com/lixiao/base_remote_maven/LxBaseLibrary'   //仓库地址     改为自己的
+}
+tasks.withType(Javadoc) {//防止编码问题
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
 
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.lx.baselibrary"
+//        applicationId "com.lx.baselibrary"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
@@ -15,6 +31,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    lintOptions {
+        abortOnError false
     }
 }
 
