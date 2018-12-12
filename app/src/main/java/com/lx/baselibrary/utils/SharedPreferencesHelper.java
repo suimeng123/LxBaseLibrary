@@ -34,7 +34,7 @@ public class SharedPreferencesHelper {
      * 通过Context获取SharedPreferences,需要自己设置xml文件名
      * @param context 上下文
      * @param fileName 存储的xml文件名
-     * @return
+     * @return 返回SharedPreferences
      */
     public static SharedPreferences getSharedPreferences (Context context, String fileName) {
         return context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
@@ -44,7 +44,7 @@ public class SharedPreferencesHelper {
      * 方式二
      * 通过Activity获取SharedPreferences,默认用当前Activity的类名作为SharedPreferences的xml文件名
      * @param activity
-     * @return
+     * @return 返回SharedPreferences
      */
     public static SharedPreferences getSharedPreferences (Activity activity) {
         return activity.getPreferences(Context.MODE_PRIVATE);
@@ -54,7 +54,7 @@ public class SharedPreferencesHelper {
      * 方式三
      * 通过PreferenceManager获取SharedPreferences,使用当前包名作为前缀来命名SharedPreferences的xml文件名
      * @param context
-     * @return
+     * @return 返回SharedPreferences
      */
     public static SharedPreferences getDefaultSharedPreferences (Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context);
