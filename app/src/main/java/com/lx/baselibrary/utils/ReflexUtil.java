@@ -1,6 +1,5 @@
 package com.lx.baselibrary.utils;
 
-import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -11,6 +10,7 @@ import java.lang.reflect.Method;
  * LxBaseLibrary
  * Created by lixiao2
  * 2018/12/14.
+ * 反射工具类
  */
 
 public class ReflexUtil {
@@ -115,6 +115,20 @@ public class ReflexUtil {
     }
 
     /**
+     * @param object        当前实例对象
+     * @param methodName    方法名称
+     * @return  获取某个method
+     */
+    public static Method getMethod(Object object, String methodName) {
+        try {
+            return object.getClass().getDeclaredMethod(methodName);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
      * 调用method方法
      * @param object        当前对象实例
      * @param methodName    调用方法名
@@ -158,7 +172,7 @@ public class ReflexUtil {
      * @param fieldName 属性的名称
      * @param value     给属性设置的值
      */
-    public static void setFiledValue(Object object, String fieldName, Object value) {
+    public static void invokeFiled(Object object, String fieldName, Object value) {
         try {
             Field field = object.getClass().getDeclaredField(fieldName);
             field.setAccessible(true);
