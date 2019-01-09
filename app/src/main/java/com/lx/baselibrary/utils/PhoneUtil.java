@@ -24,12 +24,12 @@ public class PhoneUtil {
     /** dp转px **/
     public static int dp2px(Activity activity, int dpValue) {
         DisplayMetrics dm = getDisplayMetrics(activity);
-        return (int) (dpValue / dm.density + 0.5f);
+        return (int) (dpValue * dm.density + 0.5f);
     }
 
     /** px转dp **/
     public static int px2dp(Activity activity, int pxValue) {
         DisplayMetrics dm = getDisplayMetrics(activity);
-        return (int) (pxValue * dm.density + 0.5f);
+        return (int) (pxValue / dm.density + 0.5f);
     }
 }

@@ -6,13 +6,23 @@
     android:layout_height="match_parent"
     tools:context="com.lx.baselibrary.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.lx.baselibrary.views.ReflushLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="测试Okhttp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="800dp"
+            android:gravity="center"
+            android:text="测试测试"/>
+    </com.lx.baselibrary.views.ReflushLayout>
 </android.support.constraint.ConstraintLayout>
