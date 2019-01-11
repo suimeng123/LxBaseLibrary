@@ -7,7 +7,7 @@ publish{
     userOrg = 'lixiao'   //bintray.com的用户名  改为自己的  必须和Jcenter 相对应
     groupId = 'com.lx.baselibrary'    //依赖的时候的包名   自己设定
     artifactId = 'LxBaseLibrary'         //项目名称   改为自己的   必须和Jcenter 相对应
-    publishVersion = '1.0.3'    //版本号
+    publishVersion = '1.0.5'    //版本号
     website = 'https://bintray.com/lixiao/base_remote_maven/LxBaseLibrary'   //仓库地址     改为自己的
 }
 tasks.withType(Javadoc) {//防止编码问题
@@ -44,7 +44,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    api 'com.squareup.okhttp3:okhttp:3.12.0'
-    api 'com.alibaba:fastjson:1.2.54'
-    api 'com.android.support:recyclerview-v7:27.1.1'
+    api('com.squareup.okhttp3:okhttp:3.12.0'){transitive=true}
+    api('com.alibaba:fastjson:1.2.54'){transitive=true}
+    api('com.android.support:recyclerview-v7:27.1.1'){transitive=true}
 }
