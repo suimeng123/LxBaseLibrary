@@ -48,8 +48,16 @@ public class OkHttp3Util implements IHttpUtil {
     }
 
     public OkHttp3Util(Handler handler,IParser parser, ICallBack callBack, IRequestHeader header, Interceptor interceptor, boolean isNetWork){
-        this.parser = parser;
-        this.callBack = callBack;
+        if (parser == null) {
+            this.parser = new BaseParser();
+        } else {
+            this.parser = parser;
+        }
+        if (callBack == null) {
+            this.callBack = new BaseCallBack(this.parser, handler);
+        } else {
+            this.callBack = callBack;
+        }
         this.httpHelper = new OKHttp3Helper(header,interceptor,isNetWork,this.callBack);
     }
 
