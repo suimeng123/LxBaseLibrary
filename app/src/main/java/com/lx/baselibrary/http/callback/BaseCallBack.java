@@ -58,7 +58,7 @@ public class BaseCallBack implements ICallBack {
                     bundle.putParcelable(((BaseParser) parser).getDataName(), (Parcelable) parser.getData());
                 }
             } else {
-                bundle.putString(((BaseParser) parser).getDataName(), (String) parser.getData());
+                bundle.putString(((BaseParser) parser).getDataName(), parser.getData().toString());
             }
             bundle.putString(((BaseParser) parser).getMessageName(), parser.getMessage());
             bundle.putInt(((BaseParser) parser).getCodeName(), parser.getCode());

@@ -157,7 +157,7 @@ public class ReflexUtil {
         try {
             Field field = object.getClass().getDeclaredField(fieldName);
             field.setAccessible(true);
-            field.get(object);
+            return field.get(object);
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

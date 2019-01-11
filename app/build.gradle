@@ -7,7 +7,7 @@ publish{
     userOrg = 'lixiao'   //bintray.com的用户名  改为自己的  必须和Jcenter 相对应
     groupId = 'com.lx.baselibrary'    //依赖的时候的包名   自己设定
     artifactId = 'LxBaseLibrary'         //项目名称   改为自己的   必须和Jcenter 相对应
-    publishVersion = '1.0.1'    //版本号
+    publishVersion = '1.0.2'    //版本号
     website = 'https://bintray.com/lixiao/base_remote_maven/LxBaseLibrary'   //仓库地址     改为自己的
 }
 tasks.withType(Javadoc) {//防止编码问题

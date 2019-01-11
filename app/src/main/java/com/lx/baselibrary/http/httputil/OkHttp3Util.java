@@ -43,6 +43,16 @@ public class OkHttp3Util implements IHttpUtil {
         this.httpHelper = new OKHttp3Helper(header,interceptor,isNetWork,this.callBack);
     }
 
+    public OkHttp3Util(Handler handler, IParser parser, ICallBack callBack){
+        this(handler,parser,callBack, null, null, false);
+    }
+
+    public OkHttp3Util(Handler handler,IParser parser, ICallBack callBack, IRequestHeader header, Interceptor interceptor, boolean isNetWork){
+        this.parser = parser;
+        this.callBack = callBack;
+        this.httpHelper = new OKHttp3Helper(header,interceptor,isNetWork,this.callBack);
+    }
+
     @Override
     public void doPost(String url) {
         doPost(url, null, null, 0);

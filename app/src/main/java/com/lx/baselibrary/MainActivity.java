@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        http3Util = new OkHttp3Util(mHandler);
+            http3Util = new OkHttp3Util(mHandler);
 
         rl = (ReflushLayout)findViewById(R.id.rl);
 

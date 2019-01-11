@@ -51,6 +51,18 @@ public class BaseParser implements IParser {
         return message;
     }
 
+    public void setmData(Object mData) {
+        this.mData = mData;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     @Override
     public boolean parser(String result, Class clazz) {
          if (TextUtils.isEmpty(result)){
