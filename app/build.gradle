@@ -1,20 +1,111 @@
 apply plugin: 'com.android.library'
 //apply plugin: 'com.android.application'
-apply plugin: 'com.novoda.bintray-release' //添加
+//apply plugin: 'com.novoda.bintray-release' //添加
 
-publish{
-    repoName = 'base_remote_maven'    //远程仓库名字  改为自己的 必须和Jcenter 相对应
-    userOrg = 'lixiao'   //bintray.com的用户名  改为自己的  必须和Jcenter 相对应
-    groupId = 'com.lx.baselibrary'    //依赖的时候的包名   自己设定
-    artifactId = 'LxBaseLibrary'         //项目名称   改为自己的   必须和Jcenter 相对应
-    publishVersion = '1.0.6'    //版本号
-    website = 'https://bintray.com/lixiao/base_remote_maven/LxBaseLibrary'   //仓库地址     改为自己的
-}
+//apply plugin: 'com.jfrog.artifactory'
+
+apply plugin: 'maven-publish'
+
+
+def GROUP_ID = 'com.lx.baselibrary'
+def ARTIFACT_ID = 'LxBaseLibrary'
+def VERSION_NAME = '1.0.9'
+def REPO_NAME = 'base_remote_maven'
+def USERNAME = 'lixiao'
+def WEBSITE = 'https://bintray.com/lixiao/base_remote_maven/LxBaseLibrary'
+//def WEBSITE = 'https://bintray.com/'
+def PWD = ''
+
+
+//publish{
+//    repoName = REPO_NAME    //远程仓库名字  改为自己的 必须和Jcenter 相对应
+//    userOrg = USERNAME   //bintray.com的用户名  改为自己的  必须和Jcenter 相对应
+//    groupId = GROUP_ID    //依赖的时候的包名   自己设定
+//    artifactId = ARTIFACT_ID         //项目名称   改为自己的   必须和Jcenter 相对应
+//    publishVersion = VERSION_NAME    //版本号
+//    website = WEBSITE   //仓库地址     改为自己的
+//}
 tasks.withType(Javadoc) {//防止编码问题
     options.addStringOption('Xdoclint:none', '-quiet')
     options.addStringOption('encoding', 'UTF-8')
     options.addStringOption('charSet', 'UTF-8')
 }
+
+/*
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId GROUP_ID
+            artifactId ARTIFACT_ID
+            version VERSION_NAME
+            artifact "${project.buildDir}/outputs/aar/${project.name}-release.aar"
+
+            pom.withXml {
+                def root = asNode()
+                def license = root.appendNode('licenses')
+                def licenses = license.appendNode('license')
+                license.appendNode('name', 'The Apache Software License, Version 2.0')
+                license.appendNode('url', 'http://www.apache.org/licenses/LICENSE-2.0.txt')
+                license.appendNode('distribution', 'repo')
+
+                // 依赖okhttp
+                def dependencies = root.appendNode('dependencies')
+                def dependency = dependencies.appendNode('dependency')
+                dependency.appendNode('groupId', 'com.squareup.okhttp3')
+                dependency.appendNode('artifactId', 'okhttp')
+                dependency.appendNode('version', '3.12.0')
+                dependency.appendNode('scope', 'compile')
+
+                // 依赖fastjson
+                dependency = dependencies.appendNode('dependency')
+                dependency.appendNode('groupId', 'com.alibaba')
+                dependency.appendNode('artifactId', 'fastjson')
+                dependency.appendNode('version', '1.2.54')
+                dependency.appendNode('scope', 'compile')
+
+                // 依赖recycleView
+                dependency = dependencies.appendNode('dependency')
+                dependency.appendNode('groupId', 'com.android.support')
+                dependency.appendNode('artifactId', 'recyclerview-v7')
+                dependency.appendNode('version', '27.1.1')
+                dependency.appendNode('scope', 'compile')
+
+            }
+        }
+    }
+}
+
+artifactory {
+    contextUrl = WEBSITE
+    publish {
+        repository {
+            // The Artifactory repository key to publish to
+//            repoKey = REPO_NAME
+            repoKey = ""
+            username = USERNAME // The publisher user name
+            password = PWD // The publisher password
+            maven = true
+        }
+        defaults {
+            publishArtifacts = true
+            publications('aar')
+            properties = ['qa.level': 'basic', 'q.os': 'android', 'dev.team': 'core']
+            publishPom = true //Publish generated POM files to Artifactory (true by default)
+            publishIvy = false //Publish generated Ivy descriptor files to Artifactory (true by default)
+        }
+    }
+}
+*/
+
+ext {
+    bintrayName = ARTIFACT_ID
+    artifact = ARTIFACT_ID
+    libraryName = GROUP_ID
+    libraryDescription = ''
+    libraryVersion = VERSION_NAME
+}
+
+repositories { flatDir { dirs 'libs' } }
 
 android {
     compileSdkVersion 27
@@ -37,6 +128,7 @@ android {
     }
 }
 
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -44,7 +136,11 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    api 'com.squareup.okhttp3:okhttp:3.12.0'
-    api 'com.alibaba:fastjson:1.2.54'
-    api 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.alibaba:fastjson:1.2.54'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:support-annotations:27.0.0'
 }
+
+apply from: '../install.gradle'
+apply from: '../bintray.gradle'
