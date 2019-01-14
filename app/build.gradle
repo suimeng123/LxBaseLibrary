@@ -8,8 +8,9 @@ apply plugin: 'maven-publish'
 
 
 def GROUP_ID = 'com.lx.baselibrary'
+//def ARTIFACT_ID = 'app'
 def ARTIFACT_ID = 'LxBaseLibrary'
-def VERSION_NAME = '1.0.9'
+def VERSION_NAME = '1.0.7'
 def REPO_NAME = 'base_remote_maven'
 def USERNAME = 'lixiao'
 def WEBSITE = 'https://bintray.com/lixiao/base_remote_maven/LxBaseLibrary'
@@ -99,9 +100,9 @@ artifactory {
 
 ext {
     bintrayName = ARTIFACT_ID
-    artifact = ARTIFACT_ID
-    libraryName = GROUP_ID
-    libraryDescription = ''
+    artifact = bintrayName
+    libraryName = bintrayName
+    libraryDescription = 'LxBaseLibrary SDK'
     libraryVersion = VERSION_NAME
 }
 
