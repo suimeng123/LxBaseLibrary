@@ -1,5 +1,26 @@
 apply plugin: 'com.android.library'
 
+
+
+def ARTIFACT_ID = 'baselibrary'
+def VERSION_NAME = '0.0.1'
+
+tasks.withType(Javadoc) {//防止编码问题
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+ext {
+    bintrayName = ARTIFACT_ID
+    artifact = bintrayName
+    libraryName = bintrayName
+    libraryDescription = 'BaseLibrary SDK'
+    libraryVersion = VERSION_NAME
+}
+
+repositories { flatDir { dirs 'libs' } }
+
 android {
     compileSdkVersion 26
 
@@ -31,4 +52,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.alibaba:fastjson:1.2.54'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:support-annotations:27.0.0'
 }
+
+
+apply from: '../install.gradle'
+apply from: '../bintray.gradle'
