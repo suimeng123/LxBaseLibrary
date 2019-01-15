@@ -43,6 +43,7 @@ bintray {
     pkg {
         repo = bintrayRepo
         name = bintrayName
+        artifact = artifact
         desc = libraryDescription
         websiteUrl = siteUrl
         vcsUrl = gitUrl
