@@ -39,26 +39,32 @@ install {
                     url siteUrl
 
                 }
-//                dependencies {
-//                    dependency {
-//                        groupId 'com.squareup.okhttp3'
-//                        artifactId 'okhttp'
-//                        version '3.12.0'
-//                        scope 'compile'
-//                    }
-//                    dependency {
-//                        groupId 'com.alibaba'
-//                        artifactId 'fastjson'
-//                        version '1.2.54'
-//                        scope 'compile'
-//                    }
-//                    dependency {
-//                        groupId 'com.android.support'
-//                        artifactId 'recyclerview-v7'
-//                        version '27.1.1'
-//                        scope 'compile'
-//                    }
-//                }
+                dependencies {
+                    dependency {
+                        groupId 'com.squareup.okhttp3'
+                        artifactId 'okhttp'
+                        version '3.12.0'
+                        scope 'compile'
+                    }
+                    dependency {
+                        groupId 'com.alibaba'
+                        artifactId 'fastjson'
+                        version '1.2.54'
+                        scope 'compile'
+                    }
+                    dependency {
+                        groupId 'com.android.support'
+                        artifactId 'recyclerview-v7'
+                        version '26.1.0'
+                        scope 'compile'
+                    }
+                    dependency {
+                        groupId 'com.tencent'
+                        artifactId 'mmkv'
+                        version '1.0.16'
+                        scope 'compile'
+                    }
+                }
             }
         }
     }

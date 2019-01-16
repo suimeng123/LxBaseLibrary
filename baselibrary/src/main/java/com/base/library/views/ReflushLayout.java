@@ -14,8 +14,8 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
 
-import com.lx.baselibrary.R;
-import com.lx.baselibrary.utils.PhoneUtil;
+import com.base.library.R;
+import com.base.library.utils.PhoneUtil;
 
 /**
  * com.lx.baselibrary.views
