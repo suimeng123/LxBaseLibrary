@@ -136,6 +136,7 @@ public class OKHttp3Helper implements IHttpHelper {
             } else {
                 sb.append("&").append(key).append("=").append(params.get(key));
             }
+            i++;
         }
         return sb.toString();
     }
