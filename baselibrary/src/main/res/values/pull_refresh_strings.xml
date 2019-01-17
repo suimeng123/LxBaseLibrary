@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pull_to_refresh_pull_label">下拉加载更多消息&#8230;</string>
+    <string name="pull_to_refresh_release_label">松开加载消息&#8230;</string>
+    <string name="pull_to_refresh_refreshing_label">加载中&#8230;</string>
+    <string name="pull_to_refresh_tap_label">轻点刷新&#8230;</string>
+    
+     <!-- 下拉刷新提示 -->
+    <string name="pull_to_refresh_pull_label_des">下拉进行同步</string>
+    <string name="pull_to_refresh_release_label_des">放手后将进行同步</string>
+    <string name="pull_to_refresh_refreshing_label_des">正在同步</string>
+    <string name="pull_to_refresh_from_bottom_pull_label">@string/pull_to_refresh_pull_label_des</string>
+    <string name="pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release_label_des</string>
+    <string name="pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing_label_des</string>
+    <string name="pull_to_refresh_time_str">上次同步时间:</string>
+    <string name="pull_to_refresh_time_str_none">从未</string>
+    
+</resources>

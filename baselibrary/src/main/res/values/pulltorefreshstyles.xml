@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="popup_from_bottom_animation">
+        <item name="android:windowEnterAnimation">@anim/pull_slide_in_bottom_anim</item>
+        <item name="android:windowExitAnimation">@anim/pull_slide_out_bottom_anim</item>
+    </style>
+</resources>
