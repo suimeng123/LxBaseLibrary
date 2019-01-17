@@ -76,6 +76,7 @@ public class BaseCallBack implements ICallBack {
     public void fail(String result) {
         Message message = Message.obtain();
         Bundle bundle = new Bundle();
+        bundle.putBoolean(((BaseParser) parser).getStateName(), false);
         bundle.putString(((BaseParser) parser).getMessageName(), result);
         message.what = flag;
         message.setData(bundle);
