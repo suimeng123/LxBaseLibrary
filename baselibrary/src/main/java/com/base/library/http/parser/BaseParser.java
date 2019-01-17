@@ -74,6 +74,8 @@ public class BaseParser implements IParser {
                 return true;
             } else {
                 if (data instanceof JSONObject) {
+                    mData = JSON.parseObject(data.toString(), clazz);
+                } else if (data instanceof JSONArray) {
                     mData = new ArrayList<>(JSONArray.parseArray(object.getString(getDataName()), clazz));
                 } else {
                     mData = JSON.parseObject(object.getString(getDataName()), clazz);
