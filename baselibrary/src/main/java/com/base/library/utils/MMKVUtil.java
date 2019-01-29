@@ -2,10 +2,13 @@ package com.base.library.utils;
 
 import android.content.SharedPreferences;
 import android.os.Parcelable;
+import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.tencent.mmkv.MMKV;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -88,7 +91,11 @@ public class MMKVUtil {
                     return kv.decodeStringSet(name);
                 case TYPE_JSONARRAY:
                     String arrayStr = kv.decodeString(name);
-                    return new ArrayList<>(JSON.parseArray(arrayStr, clazzs[0]));
+                    if (!TextUtils.isEmpty(arrayStr)) {
+                        return new ArrayList<>(JSON.parseArray(arrayStr, clazzs[0]));
+                    } else {
+                        return null;
+                    }
                 default:
                     break;
             }
