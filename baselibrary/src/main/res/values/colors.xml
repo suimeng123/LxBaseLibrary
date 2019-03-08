@@ -11,4 +11,10 @@
     <color name="c_8b">#8b8b8b</color>
     <color name="c_92">#929292</color>
     <color name="c_e0">#e0e0e0</color>
+
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+
 </resources>
